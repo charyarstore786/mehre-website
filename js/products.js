@@ -119,6 +119,28 @@ const PRODUCTS = [
     sizes: ["S", "M", "L", "Custom"],
     featured: true,
     description: "Magenta-to-purple ombre bridal lehnga with dense gold zari and sequin embroidery, paired with an ivory-and-pink printed dupatta. Includes matching embellished blouse. Made to order — 3 weeks lead time."
+  },
+  {
+    id: 11,
+    name: "Anaya Ivory Embellished Sharara",
+    category: "Bridal",
+    brand: "Mehre Couture",
+    price: 48000,
+    images: ["images/p11-ivory-embellished-sharara-1.jpg", "images/p11-ivory-embellished-sharara-2.jpg"],
+    sizes: ["S", "M", "L", "Custom"],
+    featured: false,
+    description: "Ivory sharara-gharara set with dense pearl and stone embellishment throughout, finished with a heavily embroidered cape-style dupatta and scalloped hem. An heirloom-worthy choice for nikkah or walima. Made to order — 2-3 weeks lead time."
+  },
+  {
+    id: 12,
+    name: "Zara Magenta Bandhani Lehnga",
+    category: "Bridal",
+    brand: "Mehre Couture",
+    price: 62000,
+    images: ["images/p12-magenta-bandhani-lehnga-1.jpg", "images/p12-magenta-bandhani-lehnga-2.jpg"],
+    sizes: ["S", "M", "L", "Custom"],
+    featured: false,
+    description: "Magenta bandhani-print bridal lehnga with dense gold zari and mirror work, paired with a contrasting peach-ivory printed dupatta and matching embellished blouse. A vibrant statement piece for mehndi or reception. Made to order — 3 weeks lead time."
   }
 ];
 
