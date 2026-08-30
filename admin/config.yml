@@ -1,0 +1,176 @@
+backend:
+  name: github
+  repo: charyarstore786/mehre-website
+  branch: main
+  base_url: https://mehre-website.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "images"
+public_folder: "images"
+
+site_url: https://mehre-website.vercel.app
+display_url: https://mehre-website.vercel.app
+logo_url: https://mehre-website.vercel.app/images/p10-magenta-lehnga-1.jpg
+
+locale: "en"
+
+collections:
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    files:
+      - file: "content/products.json"
+        label: "All Products"
+        name: "products"
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            summary: "{{fields.name}} — Rs{{fields.price}}"
+            fields:
+              - { label: "ID (unique number, never reuse)", name: "id", widget: "number", value_type: "int" }
+              - { label: "Name", name: "name", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options: ["Formal", "Party Wear", "Bridal"]
+              - { label: "Brand", name: "brand", widget: "string" }
+              - { label: "Price (PKR)", name: "price", widget: "number", value_type: "int" }
+              - { label: "Old Price (PKR) — leave blank if not on sale", name: "oldPrice", widget: "number", value_type: "int", required: false }
+              - label: "Photos"
+                name: "images"
+                widget: "list"
+                field: { label: "Photo", name: "image", widget: "image" }
+              - label: "Sizes"
+                name: "sizes"
+                widget: "list"
+                field: { label: "Size", name: "size", widget: "string" }
+              - { label: "Show on Homepage (Featured)", name: "featured", widget: "boolean", default: false }
+              - { label: "Description", name: "description", widget: "text" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "content/settings.json"
+        label: "General Settings"
+        name: "settings"
+        fields:
+          - { label: "WhatsApp Number (country code + number, no + or spaces, e.g. 923001234567)", name: "whatsappNumber", widget: "string" }
+          - { label: "Store Name", name: "storeName", widget: "string" }
+          - { label: "Contact Email", name: "email", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - label: "Currency Exchange Rates"
+            name: "currencies"
+            widget: "object"
+            fields:
+              - label: "PKR (base currency)"
+                name: "PKR"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (always 1)", name: "rate", widget: "number" }
+              - label: "USD"
+                name: "USD"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (PKR per 1 USD)", name: "rate", widget: "number" }
+              - label: "GBP"
+                name: "GBP"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (PKR per 1 GBP)", name: "rate", widget: "number" }
+              - label: "EUR"
+                name: "EUR"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (PKR per 1 EUR)", name: "rate", widget: "number" }
+              - label: "AED"
+                name: "AED"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (PKR per 1 AED)", name: "rate", widget: "number" }
+              - label: "SAR"
+                name: "SAR"
+                widget: "object"
+                fields:
+                  - { label: "Symbol", name: "symbol", widget: "string" }
+                  - { label: "Rate (PKR per 1 SAR)", name: "rate", widget: "number" }
+          - label: "Social Links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+
+  - name: "home"
+    label: "Home Page"
+    files:
+      - file: "content/home.json"
+        label: "Homepage Content"
+        name: "home"
+        fields:
+          - { label: "Hero Eyebrow (small text above heading)", name: "heroEyebrow", widget: "string" }
+          - { label: "Hero Heading (use <br> for a line break)", name: "heroHeading", widget: "string" }
+          - { label: "Hero Text", name: "heroText", widget: "text" }
+          - { label: "Hero Photo", name: "heroImage", widget: "image" }
+          - label: "Customer Testimonials"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "Customer Name & Location", name: "name", widget: "string" }
+
+  - name: "about"
+    label: "About Page"
+    files:
+      - file: "content/about.json"
+        label: "About Page Content"
+        name: "about"
+        fields:
+          - { label: "Story Heading", name: "heading", widget: "string" }
+          - label: "Story Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Info Cards"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+
+  - name: "delivery"
+    label: "Delivery Page"
+    files:
+      - file: "content/delivery.json"
+        label: "Delivery Page Content"
+        name: "delivery"
+        fields:
+          - { label: "Intro Text", name: "intro", widget: "text" }
+          - label: "Countries We Ship To"
+            name: "countries"
+            widget: "list"
+            field: { label: "Country (with flag emoji)", name: "country", widget: "string" }
+          - label: "Delivery Timelines"
+            name: "timelines"
+            widget: "list"
+            summary: "{{fields.region}}"
+            fields:
+              - { label: "Region", name: "region", widget: "string" }
+              - { label: "Estimated Time", name: "time", widget: "string" }
+          - label: "Delivery Charges & Payment Cards"
+            name: "charges"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - { label: "Customs & Import Duties Note", name: "customsNote", widget: "text" }

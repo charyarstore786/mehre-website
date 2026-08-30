@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "name": "Rania Sequin Sharara Set",
+    "category": "Party Wear",
+    "brand": "Mehre Signature",
+    "price": 26500,
+    "oldPrice": 31500,
+    "images": ["images/p1-pink-sequin-sharara-1.jpg", "images/p1-pink-sequin-sharara-2.jpg", "images/p1-pink-sequin-sharara-3.jpg", "images/p1-pink-sequin-sharara-4.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": true,
+    "description": "Dusty rose sharara set fully hand-embellished with sequin work, finished with a crystal-embroidered neckline and a matching net dupatta with scalloped border. Fully lined, made to order."
+  },
+  {
+    "id": 2,
+    "name": "Noor Ivory Bridal Sharara",
+    "category": "Bridal",
+    "brand": "Mehre Couture",
+    "price": 42000,
+    "images": ["images/p2-ivory-bridal-sharara-1.jpg", "images/p2-ivory-bridal-sharara-2.jpg"],
+    "sizes": ["S", "M", "L", "Custom"],
+    "featured": true,
+    "description": "Ivory sharara set richly embroidered with tonal thread and pearl work, paired with a heavily bordered dupatta. A soft, elegant choice for nikkah or walima. Made to order — 2 weeks lead time."
+  },
+  {
+    "id": 3,
+    "name": "Alina Powder Blue Suit",
+    "category": "Formal",
+    "brand": "Mehre Signature",
+    "price": 15800,
+    "images": ["images/p3-powder-blue-suit-1.jpg", "images/p3-powder-blue-suit-2.jpg", "images/p3-powder-blue-suit-3.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": true,
+    "description": "Powder blue three-piece formal suit in jacquard fabric with delicate booti work, hand-embellished neckline, straight trousers and a crystal-bordered organza dupatta."
+  },
+  {
+    "id": 4,
+    "name": "Zoya Blush Floral Kurta Set",
+    "category": "Formal",
+    "brand": "Mehre Signature",
+    "price": 16500,
+    "images": ["images/p4-blush-pink-kurta-1.jpg", "images/p4-blush-pink-kurta-2.jpg", "images/p4-blush-pink-kurta-3.jpg", "images/p4-blush-pink-kurta-4.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": false,
+    "description": "Blush pink jacquard kurta set with silver embroidered neckline and cuffs, paired with matching trousers and a bordered dupatta. Understated elegance for daytime formal wear."
+  },
+  {
+    "id": 5,
+    "name": "Sana Black Flowy Gown",
+    "category": "Party Wear",
+    "brand": "Mehre Couture",
+    "price": 19900,
+    "images": ["images/p5-black-gown-1.jpg", "images/p5-black-gown-2.jpg", "images/p5-black-gown-3.jpg", "images/p5-black-gown-4.jpg"],
+    "sizes": ["S", "M", "L"],
+    "featured": true,
+    "description": "Floor-length black georgette gown with a flowing silhouette, lace-trimmed neckline and sequin-bordered hem. Effortlessly elegant for evening events."
+  },
+  {
+    "id": 6,
+    "name": "Mahnoor Purple Floral Kurta",
+    "category": "Formal",
+    "brand": "Mehre Signature",
+    "price": 22000,
+    "images": ["images/p6-purple-floral-kurta-1.jpg", "images/p6-purple-floral-kurta-2.jpg", "images/p6-purple-floral-kurta-3.jpg", "images/p6-purple-floral-kurta-4.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": false,
+    "description": "Deep indigo satin kurta hand-embroidered with teal and silver floral motifs, finished with a beaded cutwork neckline. Comes with matching trousers and dupatta."
+  },
+  {
+    "id": 7,
+    "name": "Farah Ivory Ruffled Maxi",
+    "category": "Bridal",
+    "brand": "Mehre Couture",
+    "price": 34500,
+    "images": ["images/p7-ivory-ruffled-maxi-1.jpg", "images/p7-ivory-ruffled-maxi-2.jpg", "images/p7-ivory-ruffled-maxi-3.jpg", "images/p7-ivory-ruffled-maxi-4.jpg"],
+    "sizes": ["S", "M", "L", "Custom"],
+    "featured": true,
+    "description": "Ivory chiffon maxi gown with a dramatic ruffled, embellished hem and a heavily bordered dupatta in soft metallic tones. A showstopper for walima or reception."
+  },
+  {
+    "id": 8,
+    "name": "Iman Black Paisley Kurta",
+    "category": "Formal",
+    "brand": "Mehre Signature",
+    "price": 24500,
+    "images": ["images/p8-black-paisley-kurta-1.jpg", "images/p8-black-paisley-kurta-2.jpg", "images/p8-black-paisley-kurta-3.jpg", "images/p8-black-paisley-kurta-4.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": true,
+    "description": "Black satin kurta with rich maroon and gold paisley embroidery down the front and sleeves, paired with matching trousers and dupatta. Striking festive formal wear."
+  },
+  {
+    "id": 9,
+    "name": "Alishba Floral Organza Suit",
+    "category": "Party Wear",
+    "brand": "Mehre Signature",
+    "price": 17800,
+    "images": ["images/p9-pink-floral-organza-1.jpg", "images/p9-pink-floral-organza-2.jpg", "images/p9-pink-floral-organza-3.jpg", "images/p9-pink-floral-organza-4.jpg"],
+    "sizes": ["S", "M", "L", "XL"],
+    "featured": true,
+    "description": "Dusty pink floral-printed organza suit with hand-embellished gold border work and a matching printed dupatta. Light, romantic and perfect for daytime functions."
+  },
+  {
+    "id": 10,
+    "name": "Dua Magenta Bridal Lehnga",
+    "category": "Bridal",
+    "brand": "Mehre Couture",
+    "price": 58000,
+    "oldPrice": 68000,
+    "images": ["images/p10-magenta-lehnga-1.jpg", "images/p10-magenta-lehnga-2.jpg", "images/p10-magenta-lehnga-3.jpg"],
+    "sizes": ["S", "M", "L", "Custom"],
+    "featured": true,
+    "description": "Magenta-to-purple ombre bridal lehnga with dense gold zari and sequin embroidery, paired with an ivory-and-pink printed dupatta. Includes matching embellished blouse. Made to order — 3 weeks lead time."
+  },
+  {
+    "id": 11,
+    "name": "Anaya Ivory Embellished Sharara",
+    "category": "Bridal",
+    "brand": "Mehre Couture",
+    "price": 48000,
+    "images": ["images/p11-ivory-embellished-sharara-1.jpg", "images/p11-ivory-embellished-sharara-2.jpg", "images/p11-ivory-embellished-sharara-3.jpg"],
+    "sizes": ["S", "M", "L", "Custom"],
+    "featured": false,
+    "description": "Ivory sharara-gharara set with dense pearl and stone embellishment throughout, finished with a heavily embroidered cape-style dupatta and scalloped hem. An heirloom-worthy choice for nikkah or walima. Made to order — 2-3 weeks lead time."
+  },
+  {
+    "id": 12,
+    "name": "Zara Magenta Bandhani Lehnga",
+    "category": "Bridal",
+    "brand": "Mehre Couture",
+    "price": 62000,
+    "images": ["images/p12-magenta-bandhani-lehnga-1.jpg", "images/p12-magenta-bandhani-lehnga-2.jpg"],
+    "sizes": ["S", "M", "L", "Custom"],
+    "featured": false,
+    "description": "Magenta bandhani-print bridal lehnga with dense gold zari and mirror work, paired with a contrasting peach-ivory printed dupatta and matching embellished blouse. A vibrant statement piece for mehndi or reception. Made to order — 3 weeks lead time."
+  }
+]

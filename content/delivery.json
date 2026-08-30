@@ -1,0 +1,31 @@
+{
+  "intro": "We currently ship within Pakistan and to the following international destinations. Don't see your country listed? Message us on WhatsApp — we can often still arrange delivery.",
+  "countries": [
+    "🇵🇰 Pakistan (all major cities)",
+    "🇬🇧 United Kingdom",
+    "🇺🇸 United States",
+    "🇦🇪 United Arab Emirates",
+    "🇸🇦 Saudi Arabia",
+    "🇨🇦 Canada",
+    "🇦🇺 Australia",
+    "🇶🇦 Qatar",
+    "🇰🇼 Kuwait",
+    "🇩🇪 Germany",
+    "🇫🇷 France",
+    "🇳🇴 Norway"
+  ],
+  "timelines": [
+    { "region": "Within Pakistan", "time": "2 – 4 working days" },
+    { "region": "UAE, Saudi Arabia, Qatar, Kuwait", "time": "5 – 8 working days" },
+    { "region": "UK & Europe", "time": "7 – 12 working days" },
+    { "region": "USA & Canada", "time": "8 – 14 working days" },
+    { "region": "Australia", "time": "8 – 14 working days" },
+    { "region": "Bridal / made-to-order pieces", "time": "+5 – 10 working days production time before dispatch" }
+  ],
+  "charges": [
+    { "icon": "📦", "title": "Pakistan Orders", "text": "Flat-rate courier delivery nationwide. Cash on Delivery (COD) available in most cities, or prepay via bank transfer / JazzCash / Easypaisa." },
+    { "icon": "🌍", "title": "International Orders", "text": "Shipping cost depends on destination and order weight — we calculate and confirm this with you on WhatsApp before you pay." },
+    { "icon": "💳", "title": "How You Pay", "text": "International customers can pay via bank transfer, Western Union, or another method we agree on together — confirmed securely over WhatsApp." }
+  ],
+  "customsNote": "Depending on your country, local customs authorities may apply import duties or taxes on your order. These charges are set by your government and are the responsibility of the customer — they are not included in our product or shipping prices."
+}

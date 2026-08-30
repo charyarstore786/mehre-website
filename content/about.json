@@ -1,0 +1,12 @@
+{
+  "heading": "Crafted in Pakistan, worn around the world",
+  "paragraphs": [
+    "Mehre began with a simple goal: to bring premium, branded dresses made with genuine craftsmanship in Pakistan to customers everywhere — from Lahore to London, Dubai to Toronto. Every piece is designed with attention to fabric, fit and finish, whether it's an everyday linen dress or an heavily embellished bridal ensemble.",
+    "We work directly with skilled local artisans and trusted fabric suppliers to ensure every dress reflects the quality our customers expect. As our community has grown beyond Pakistan, we've built our ordering process around WhatsApp so every customer — no matter their country or currency — gets a personal, direct line to our team for sizing advice, order confirmation and delivery updates."
+  ],
+  "cards": [
+    { "icon": "🧵", "title": "Quality First", "text": "Premium fabrics and hand-finished detailing on every piece, made to order rather than mass produced." },
+    { "icon": "🌍", "title": "Global Reach", "text": "Serving customers across Pakistan and key international markets including the UK, USA, UAE, Saudi Arabia, Canada and Australia." },
+    { "icon": "🤝", "title": "Personal Service", "text": "Real conversations over WhatsApp for sizing, styling advice and order tracking — not a faceless checkout." }
+  ]
+}

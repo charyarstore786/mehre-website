@@ -1,0 +1,18 @@
+{
+  "whatsappNumber": "923711626229",
+  "storeName": "Mehre",
+  "email": "hello@mehre.example",
+  "address": "Lahore, Pakistan",
+  "currencies": {
+    "PKR": { "symbol": "Rs", "rate": 1 },
+    "USD": { "symbol": "$", "rate": 278 },
+    "GBP": { "symbol": "£", "rate": 355 },
+    "EUR": { "symbol": "€", "rate": 300 },
+    "AED": { "symbol": "AED ", "rate": 76 },
+    "SAR": { "symbol": "SAR ", "rate": 74 }
+  },
+  "social": {
+    "instagram": "#",
+    "facebook": "#"
+  }
+}

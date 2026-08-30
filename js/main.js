@@ -4,13 +4,11 @@
 ================================================================== */
 
 /* ---------- Config ---------- */
-const WHATSAPP_NUMBER = "923711626229";
-const STORE_NAME = "Mehre";
-
-/* Approximate exchange rates: how many PKR = 1 unit of currency.
-   NOTE: these are indicative only — update periodically or wire to a
-   live FX API. Final amount is always confirmed in PKR over WhatsApp. */
-const CURRENCIES = {
+/* WHATSAPP_NUMBER, STORE_NAME and CURRENCIES are loaded at runtime from
+   content/settings.json (editable via the admin dashboard) — see loadSettings(). */
+let WHATSAPP_NUMBER = "923711626229";
+let STORE_NAME = "Mehre";
+let CURRENCIES = {
   PKR: { symbol: "Rs", rate: 1 },
   USD: { symbol: "$", rate: 278 },
   GBP: { symbol: "£", rate: 355 },
@@ -18,6 +16,18 @@ const CURRENCIES = {
   AED: { symbol: "AED ", rate: 76 },
   SAR: { symbol: "SAR ", rate: 74 }
 };
+
+async function loadSettings() {
+  try {
+    const res = await fetch("content/settings.json", { cache: "no-store" });
+    const settings = await res.json();
+    if (settings.whatsappNumber) WHATSAPP_NUMBER = settings.whatsappNumber;
+    if (settings.storeName) STORE_NAME = settings.storeName;
+    if (settings.currencies) CURRENCIES = settings.currencies;
+  } catch (e) {
+    /* keep defaults above if settings.json can't be loaded */
+  }
+}
 
 const CART_KEY = "mehre_cart";
 const CURRENCY_KEY = "mehre_currency";
@@ -208,17 +218,105 @@ function setFooterYear() {
   });
 }
 
+/* ---------- Page content rendering (home / about / delivery) ---------- */
+async function loadHomeContent() {
+  const heroVisual = document.querySelector(".hero-visual");
+  if (!heroVisual) return;
+  try {
+    const res = await fetch("content/home.json", { cache: "no-store" });
+    const c = await res.json();
+    const eyebrow = document.querySelector(".hero .eyebrow");
+    const heading = document.querySelector(".hero h1");
+    const lead = document.querySelector(".hero .lead");
+    const img = document.querySelector(".hero-visual img");
+    if (eyebrow && c.heroEyebrow) eyebrow.textContent = c.heroEyebrow;
+    if (heading && c.heroHeading) heading.innerHTML = c.heroHeading;
+    if (lead && c.heroText) lead.textContent = c.heroText;
+    if (img && c.heroImage) { img.src = c.heroImage; img.alt = c.heroHeading ? c.heroHeading.replace(/<br\s*\/?>/gi, " ") : ""; }
+
+    const testimonialGrid = document.querySelector(".testimonial-grid");
+    if (testimonialGrid && Array.isArray(c.testimonials)) {
+      testimonialGrid.innerHTML = c.testimonials.map(t => `
+        <div class="testimonial">
+          <div class="stars">★★★★★</div>
+          <p>"${t.quote}"</p>
+          <div class="name">— ${t.name}</div>
+        </div>`).join("");
+    }
+  } catch (e) { /* keep static HTML fallback */ }
+}
+
+async function loadAboutContent() {
+  const storyHeading = document.getElementById("about-heading");
+  if (!storyHeading) return;
+  try {
+    const res = await fetch("content/about.json", { cache: "no-store" });
+    const c = await res.json();
+    if (c.heading) storyHeading.textContent = c.heading;
+    const paraWrap = document.getElementById("about-paragraphs");
+    if (paraWrap && Array.isArray(c.paragraphs)) {
+      paraWrap.innerHTML = c.paragraphs.map(p => `<p>${p}</p>`).join("");
+    }
+    const cardsWrap = document.getElementById("about-cards");
+    if (cardsWrap && Array.isArray(c.cards)) {
+      cardsWrap.innerHTML = c.cards.map(card => `
+        <div class="info-card">
+          <h3>${card.icon} ${card.title}</h3>
+          <p>${card.text}</p>
+        </div>`).join("");
+    }
+  } catch (e) { /* keep static HTML fallback */ }
+}
+
+async function loadDeliveryContent() {
+  const countryWrap = document.getElementById("delivery-countries");
+  if (!countryWrap) return;
+  try {
+    const res = await fetch("content/delivery.json", { cache: "no-store" });
+    const c = await res.json();
+    const introEl = document.getElementById("delivery-intro");
+    if (introEl && c.intro) introEl.textContent = c.intro;
+    if (Array.isArray(c.countries)) {
+      countryWrap.innerHTML = c.countries.map(co => `<span class="country-chip">${co}</span>`).join("");
+    }
+    const ratesBody = document.getElementById("delivery-rates-body");
+    if (ratesBody && Array.isArray(c.timelines)) {
+      ratesBody.innerHTML = c.timelines.map(t => `<tr><td>${t.region}</td><td>${t.time}</td></tr>`).join("");
+    }
+    const chargesWrap = document.getElementById("delivery-charges");
+    if (chargesWrap && Array.isArray(c.charges)) {
+      chargesWrap.innerHTML = c.charges.map(ch => `
+        <div class="info-card">
+          <h3>${ch.icon} ${ch.title}</h3>
+          <p>${ch.text}</p>
+        </div>`).join("");
+    }
+    const customsEl = document.getElementById("delivery-customs");
+    if (customsEl && c.customsNote) customsEl.textContent = c.customsNote;
+  } catch (e) { /* keep static HTML fallback */ }
+}
+
 /* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadSettings();
+  await loadProducts();
+
   initMobileNav();
   wireCurrencySelects();
   wireWhatsAppLinks();
   setFooterYear();
   updateCartCount();
 
-  // Homepage featured grid
+  // Homepage
+  await loadHomeContent();
   const featuredGrid = document.getElementById("featured-grid");
   if (featuredGrid) renderProductGrid(featuredGrid, PRODUCTS.filter(p => p.featured));
+
+  // About page
+  await loadAboutContent();
+
+  // Delivery page
+  await loadDeliveryContent();
 
   // Shop page grid (with category filter)
   const shopGrid = document.getElementById("shop-grid");
