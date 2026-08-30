@@ -94,7 +94,7 @@ const PRODUCTS = [
     price: 24500,
     images: ["images/p8-black-paisley-kurta-1.jpg", "images/p8-black-paisley-kurta-2.jpg"],
     sizes: ["S", "M", "L", "XL"],
-    featured: false,
+    featured: true,
     description: "Black satin kurta with rich maroon and gold paisley embroidery down the front and sleeves, paired with matching trousers and dupatta. Striking festive formal wear."
   },
   {
@@ -105,7 +105,7 @@ const PRODUCTS = [
     price: 17800,
     images: ["images/p9-pink-floral-organza-1.jpg", "images/p9-pink-floral-organza-2.jpg"],
     sizes: ["S", "M", "L", "XL"],
-    featured: false,
+    featured: true,
     description: "Dusty pink floral-printed organza suit with hand-embellished gold border work and a matching printed dupatta. Light, romantic and perfect for daytime functions."
   },
   {
