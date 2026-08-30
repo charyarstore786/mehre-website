@@ -254,6 +254,11 @@ footer.site-footer{ background: var(--color-ink); color:#cfc7bd; padding: 60px 0
 }
 .whatsapp-float:hover .wa-tooltip{ opacity:1; transform:none; }
 @keyframes wa-pulse{ 0%{ box-shadow:0 0 0 0 rgba(37,211,102,.5);} 70%{ box-shadow:0 0 0 14px rgba(37,211,102,0);} 100%{ box-shadow:0 0 0 0 rgba(37,211,102,0);} }
+@media (max-width: 600px){
+  .whatsapp-float{ bottom:14px; right:14px; }
+  .whatsapp-float .wa-btn{ width:46px; height:46px; }
+  .whatsapp-float .wa-btn svg{ width:24px; height:24px; }
+}
 
 /* ---------- Toast ---------- */
 .toast{

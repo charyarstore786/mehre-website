@@ -258,6 +258,8 @@ function initProductDetailPage() {
   if (!product) {
     root.style.display = "none";
     if (notFound) notFound.style.display = "block";
+    const relatedSection = document.getElementById("related-section");
+    if (relatedSection) relatedSection.style.display = "none";
     return;
   }
 
