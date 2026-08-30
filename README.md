@@ -35,7 +35,7 @@ its photos in `images/`, then add an entry to the `PRODUCTS` array in
 
 ## Key Things to Update Before Launch
 
-- **WhatsApp number**: `js/main.js` → `WHATSAPP_NUMBER` (currently `923337663132`)
+- **WhatsApp number**: `js/main.js` → `WHATSAPP_NUMBER` (currently `923711626229`)
 - **Prices & descriptions**: `js/products.js` — verify against real stock/pricing
 - **Exchange rates**: `js/main.js` → `CURRENCIES` object. These are indicative fixed rates (PKR per unit of currency) — update periodically, or wire up a live FX API.
 - **Contact details**: WhatsApp number, email, and address appear in every page footer — update all 7 files, or convert the header/footer to a shared include if the site grows.

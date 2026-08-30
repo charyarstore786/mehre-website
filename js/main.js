@@ -4,7 +4,7 @@
 ================================================================== */
 
 /* ---------- Config ---------- */
-const WHATSAPP_NUMBER = "923337663132"; // TODO: confirm/replace with the live business number
+const WHATSAPP_NUMBER = "923711626229";
 const STORE_NAME = "Mehre";
 
 /* Approximate exchange rates: how many PKR = 1 unit of currency.
