@@ -1,4 +1,5 @@
-[
+{
+  "products": [
   {
     "id": 1,
     "name": "Rania Sequin Sharara Set",
@@ -133,4 +134,5 @@
     "featured": false,
     "description": "Magenta bandhani-print bridal lehnga with dense gold zari and mirror work, paired with a contrasting peach-ivory printed dupatta and matching embellished blouse. A vibrant statement piece for mehndi or reception. Made to order — 3 weeks lead time."
   }
-]
+  ]
+}

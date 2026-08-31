@@ -8,7 +8,8 @@ let PRODUCTS = [];
 async function loadProducts() {
   try {
     const res = await fetch("content/products.json", { cache: "no-store" });
-    PRODUCTS = await res.json();
+    const data = await res.json();
+    PRODUCTS = data.products;
   } catch (e) {
     PRODUCTS = [];
   }
