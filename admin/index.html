@@ -8,5 +8,63 @@
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    /* Adds product photo thumbnails + a SALE badge next to product names
+       wherever they appear as plain text in the CMS UI (e.g. the Featured
+       Products picker). Purely visual — reads content/products.json and
+       decorates matching text; never touches CMS state or data. */
+    (async function () {
+      let productInfo = {};
+      try {
+        const res = await fetch("/content/products.json", { cache: "no-store" });
+        const data = await res.json();
+        (data.products || []).forEach(function (p) {
+          const name = (p.name || "").trim();
+          if (!name) return;
+          productInfo[name] = {
+            image: p.images && p.images[0] ? "/" + p.images[0] : null,
+            onSale: !!p.oldPrice
+          };
+        });
+      } catch (e) { return; }
+
+      function decorate(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, {
+          acceptNode: function (el) {
+            if (el.children.length > 0) return NodeFilter.FILTER_SKIP;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        let el;
+        while ((el = walker.nextNode())) {
+          const text = (el.textContent || "").trim();
+          const info = productInfo[text];
+          if (!info) continue;
+          const prev = el.previousElementSibling;
+          if (prev && prev.dataset && prev.dataset.mehreThumbFor === text) continue;
+          const wrap = document.createElement("span");
+          wrap.dataset.mehreThumbFor = text;
+          wrap.style.cssText = "display:inline-flex;align-items:center;gap:5px;margin-right:6px;";
+          if (info.image) {
+            const img = document.createElement("img");
+            img.src = info.image;
+            img.style.cssText = "width:20px;height:26px;object-fit:cover;border-radius:3px;flex-shrink:0;";
+            wrap.appendChild(img);
+          }
+          if (info.onSale) {
+            const badge = document.createElement("span");
+            badge.textContent = "SALE";
+            badge.style.cssText = "background:#c0392b;color:#fff;font-size:9px;font-weight:700;padding:1px 4px;border-radius:2px;letter-spacing:.03em;flex-shrink:0;";
+            wrap.appendChild(badge);
+          }
+          if (wrap.children.length) el.insertAdjacentElement("beforebegin", wrap);
+        }
+      }
+
+      const observer = new MutationObserver(function () { decorate(document.body); });
+      observer.observe(document.body, { childList: true, subtree: true });
+      decorate(document.body);
+    })();
+  </script>
 </body>
 </html>
