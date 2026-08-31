@@ -45,7 +45,6 @@ collections:
                 name: "sizes"
                 widget: "list"
                 field: { label: "Size", name: "size", widget: "string" }
-              - { label: "Show on Homepage (Featured)", name: "featured", widget: "boolean", default: false }
               - { label: "Description", name: "description", widget: "text" }
 
   - name: "settings"
@@ -117,6 +116,17 @@ collections:
           - { label: "Hero Heading (use <br> for a line break)", name: "heroHeading", widget: "string" }
           - { label: "Hero Text", name: "heroText", widget: "text" }
           - { label: "Hero Photo", name: "heroImage", widget: "image" }
+          - label: "Featured Products (the 'Featured Dresses' section on the homepage)"
+            name: "featuredProductIds"
+            widget: "relation"
+            collection: "products"
+            file: "products"
+            search_fields: ["products.*.name"]
+            value_field: "products.*.id"
+            display_fields: ["products.*.name"]
+            multiple: true
+            required: false
+            hint: "Search and select products by name. They appear on the homepage in the order you add them here."
           - label: "Customer Testimonials"
             name: "testimonials"
             widget: "list"

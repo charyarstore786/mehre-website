@@ -221,7 +221,7 @@ function setFooterYear() {
 /* ---------- Page content rendering (home / about / delivery) ---------- */
 async function loadHomeContent() {
   const heroVisual = document.querySelector(".hero-visual");
-  if (!heroVisual) return;
+  if (!heroVisual) return null;
   try {
     const res = await fetch("content/home.json", { cache: "no-store" });
     const c = await res.json();
@@ -243,7 +243,9 @@ async function loadHomeContent() {
           <div class="name">— ${t.name}</div>
         </div>`).join("");
     }
+    return c;
   } catch (e) { /* keep static HTML fallback */ }
+  return null;
 }
 
 async function loadAboutContent() {
@@ -308,9 +310,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   updateCartCount();
 
   // Homepage
-  await loadHomeContent();
+  const homeContent = await loadHomeContent();
   const featuredGrid = document.getElementById("featured-grid");
-  if (featuredGrid) renderProductGrid(featuredGrid, PRODUCTS.filter(p => p.featured));
+  if (featuredGrid) {
+    const ids = homeContent && Array.isArray(homeContent.featuredProductIds) ? homeContent.featuredProductIds : [];
+    const featured = ids.length
+      ? ids.map(id => getProductById(id)).filter(Boolean)
+      : PRODUCTS.slice(0, 8);
+    renderProductGrid(featuredGrid, featured);
+  }
 
   // About page
   await loadAboutContent();
